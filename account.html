@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToKa Fitness - Account</title>
+</head>
+<body>
+
+<a href="#main">Skip to main content</a>
+
+<header>
+  <section aria-label="Accessibility options">
+    <label for="text-size">Text size</label>
+    <input type="range" id="text-size" min="100" max="200" step="10" value="100">
+    <button type="button">High contrast</button>
+    <button type="button">Easy-read font</button>
+  </section>
+
+  <p><a href="index.html">ToKa Fitness</a></p>
+
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="index.html">Advice</a></li>
+      <li><a href="plans.html">Plans and content</a></li>
+      <li><a href="training.html">My training</a></li>
+      <li><a href="account.html" aria-current="page">Account</a></li>
+      <li><button type="button">Log out</button></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+
+<h1>Your account</h1>
+
+<section aria-labelledby="login-heading">
+  <h2 id="login-heading">Log in</h2>
+  <form>
+    <p>
+      <label for="login-email">Email</label>
+      <input type="email" id="login-email" name="email" autocomplete="email" required>
+    </p>
+    <p>
+      <label for="login-password">Password</label>
+      <input type="password" id="login-password" name="password" autocomplete="current-password" required>
+    </p>
+    <button type="submit">Log in</button>
+  </form>
+</section>
+
+<section aria-labelledby="reset-heading">
+  <h2 id="reset-heading">Forgot your password?</h2>
+  <form>
+    <p>
+      <label for="reset-email">Email</label>
+      <input type="email" id="reset-email" name="email" autocomplete="email" required>
+    </p>
+    <button type="submit">Send reset link</button>
+  </form>
+</section>
+
+<section aria-labelledby="register-heading">
+  <h2 id="register-heading">Register</h2>
+  <form>
+    <p>
+      <label for="reg-name">Name</label>
+      <input type="text" id="reg-name" name="name" autocomplete="name" required>
+    </p>
+    <p>
+      <label for="reg-email">Email</label>
+      <input type="email" id="reg-email" name="email" autocomplete="email" required>
+    </p>
+    <p>
+      <label for="reg-password">Password</label>
+      <input type="password" id="reg-password" name="password" autocomplete="new-password" minlength="12" required aria-describedby="reg-password-hint">
+      <small id="reg-password-hint">Use at least 12 characters.</small>
+    </p>
+    <p>
+      <label><input type="checkbox" name="consent" required> I have read the privacy notice and agree to ToKa storing my personal and health data.</label>
+    </p>
+    <button type="submit">Create account</button>
+  </form>
+</section>
+
+</main>
+
+<footer>
+  <p><strong>Privacy.</strong> ToKa Fitness stores your personal and health data in line with UK GDPR. Passwords are stored securely and payments are handled by a trusted payment provider.</p>
+  <p>This site can be used with a keyboard and a screen reader.</p>
+</footer>
+
+</body>
+</html>
