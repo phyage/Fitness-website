@@ -72,39 +72,39 @@ REFERENCES customers (customer_ID);
 -- content foreign keys
 ALTER TABLE content
 ADD FOREIGN KEY (workout_ID)
-REFERENCES workouts (workout_ID)
+REFERENCES workouts (workout_ID);
 
 ALTER TABLE content
 ADD FOREIGN KEY (membership_ID)
-REFERENCES membership (membership_ID)
+REFERENCES membership (membership_ID);
 
 -- workout foreign key
 ALTER TABLE workouts
 ADD FOREIGN KEY (customer_ID)
-REFERENCES customers (customer_ID)
+REFERENCES customers (customer_ID);
 
 ALTER TABLE workouts
 ADD FOREIGN KEY (content_ID)
-REFERENCES content (content_ID)
+REFERENCES content (content_ID);
 
 --customer foreign keys
 ALTER TABLE customers
 ADD FOREIGN KEY (membership_ID)
-REFERENCES membership (membership_ID)
+REFERENCES membership (membership_ID);
 
 ALTER TABLE customers
 ADD FOREIGN KEY (workout_ID)
-REFERENCES workouts (workout_ID)
+REFERENCES workouts (workout_ID);
 
 ALTER TABLE customers
 ADD FOREIGN KEY (class_ID)
-REFERENCES classes (class_ID)
+REFERENCES classes (class_ID);
 
 -- class foreign keys
 ALTER TABLE classes
 ADD FOREIGN KEY (customer_ID)
-REFERENCES customers (customer_ID)
+REFERENCES customers (customer_ID);
 
 ALTER TABLE classes
 ADD FOREIGN KEY (membership_ID)
-REFERENCES memberships (membership_ID)
+REFERENCES memberships (membership_ID);
