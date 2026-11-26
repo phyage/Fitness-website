@@ -4,7 +4,7 @@ CREATE DATABASE IF NOT EXISTS fitness_db;
 USE fitness_db;
 
 
--- MEMBERSHIP TABLE
+-- membership table
 CREATE TABLE membership (
     membership_ID INT AUTO_INCREMENT PRIMARY KEY,
     class_ID INT NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE membership (
 );
 
 
--- CONTENT TABLE
+-- content table
 CREATE TABLE content (
     content_ID INT AUTO_INCREMENT PRIMARY KEY,
     workout_ID INT NOT NULL,
@@ -25,7 +25,7 @@ CREATE TABLE content (
 );
 
 
--- WORKOUTS TABLE
+-- workout table
 CREATE TABLE workouts (
     workout_ID INT AUTO_INCREMENT PRIMARY KEY,
     customer_ID INT NOT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE workouts (
 );
 
 
--- CUSTOMERS TABLE
+-- customers table
 CREATE TABLE customers (
     customer_ID INT AUTO_INCREMENT PRIMARY KEY,
     membership_ID INT NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE customers (
 );
 
 
--- CLASSES TABLE
+-- classes table
 CREATE TABLE classes (
     class_ID INT AUTO_INCREMENT PRIMARY KEY,
     customer_ID INT NOT NULL,
@@ -59,3 +59,52 @@ CREATE TABLE classes (
     start_time TIME NOT NULL,
     end_time TIME NOT NULL
 );
+
+-- membership foreign keys
+ALTER TABLE membership 
+ADD FOREIGN KEY (class_ID)
+REFERENCES classes (class_ID);
+
+ALTER TABLE membership
+ADD FOREIGN KEY (customer_ID)
+REFERENCES customers (customer_ID);
+
+-- content foreign keys
+ALTER TABLE content
+ADD FOREIGN KEY (workout_ID)
+REFERENCES workouts (workout_ID)
+
+ALTER TABLE content
+ADD FOREIGN KEY (membership_ID)
+REFERENCES membership (membership_ID)
+
+-- workout foreign key
+ALTER TABLE workouts
+ADD FOREIGN KEY (customer_ID)
+REFERENCES customers (customer_ID)
+
+ALTER TABLE workouts
+ADD FOREIGN KEY (content_ID)
+REFERENCES content (content_ID)
+
+--customer foreign keys
+ALTER TABLE customers
+ADD FOREIGN KEY (membership_ID)
+REFERENCES membership (membership_ID)
+
+ALTER TABLE customers
+ADD FOREIGN KEY (workout_ID)
+REFERENCES workouts (workout_ID)
+
+ALTER TABLE customers
+ADD FOREIGN KEY (class_ID)
+REFERENCES classes (class_ID)
+
+-- class foreign keys
+ALTER TABLE classes
+ADD FOREIGN KEY (customer_ID)
+REFERENCES customers (customer_ID)
+
+ALTER TABLE classes
+ADD FOREIGN KEY (membership_ID)
+REFERENCES memberships (membership_ID)
